@@ -1,7 +1,7 @@
 # generic-dao
-Provides Hibernate- and Spring-based DAO layer using generics, so it can be used with any Hibernate domain object in Spring environment
+Provides Hibernate- and Spring-based DAO layer using generics, so it can be used with any Hibernate domain object in Spring environment without the need to create dedicated data access interfaces for each domain class.
 
-example:
+Examples of usages:
 
 ```
 ...
@@ -24,6 +24,13 @@ public List<User> getUsersByCompany(Integer companyId) {
     Map<String, Object> params = new HashMap<String, Object>();
     params.put("companyId", companyId);
     return dao.findByCriteriaParameters(query, params);
+}
+
+public List<Object[]> getUserListWithCount(int companyId) {
+    String query = "SELECT COUNT(u), u FROM User u where u.company.id = :companyId GROUP BY u.company";
+    Map<String, Object> params = new HashMap<String, Object>();
+    params.put("companyId", companyId);
+    return objectDao.findByCriteriaParameters(query, params)
 }
 
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class, readOnly = false)
