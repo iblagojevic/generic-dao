@@ -1,5 +1,26 @@
 # generic-dao
-Provides Hibernate- and Spring-based DAO layer using generics, so it can be used with any Hibernate domain object in Spring environment without the need to create dedicated data access interfaces for each domain class.
+Provides DAO API using generics in JPA/HIbernate/Spring environment, so it can be used with any Hibernate POJO in such architecture without the need to create dedicated data access interfaces for each domain class.
+
+Maven dependencies:
+
+```
+<dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.0-api</artifactId>
+    <version>1.0.1.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>3.2.2.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>4.2.6.Final</version>
+</dependency>
+
+```
 
 Examples of usages:
 
