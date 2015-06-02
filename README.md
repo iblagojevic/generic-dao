@@ -26,7 +26,7 @@ Examples of usages:
 
 ```
 ...
-import your.domain.class.User
+import your.domain.package.User
 ...
 
 @Autowired
