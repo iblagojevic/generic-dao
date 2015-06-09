@@ -47,8 +47,8 @@ public List<User> getUsersByCompany(Integer companyId) {
     return dao.findByCriteriaParameters(query, params);
 }
 
-public List<Object[]> getUserListWithCount(int companyId) {
-    String query = "SELECT COUNT(u), u FROM User u where u.company.id = :companyId GROUP BY u.company";
+public List<Object[]> getUserCountPerCompany() {
+    String query = "SELECT c, COUNT(u) FROM User u join u.company c GROUP BY c";
     Map<String, Object> params = new HashMap<String, Object>();
     params.put("companyId", companyId);
     return objectDao.findByCriteriaParameters(query, params)
